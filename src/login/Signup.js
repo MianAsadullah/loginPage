@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import Signup from "./Signup";
 
-function Login() {
+function Signup() {
+  const [stateEmail, setstateEmail] = useState([]);
   const [usernameState, userSetstate] = useState([]);
   const [statePassword, setstatePassword] = useState([]);
   const handleusername = (event) => {
@@ -16,7 +15,11 @@ function Login() {
       i: event.target.value,
     });
   };
-
+  const handleEmail = (event) => {
+    setstateEmail({
+      Email: event.target.value,
+    });
+  };
   const handleLogin = () => {
     alert(
       "User Name:" +
@@ -29,7 +32,7 @@ function Login() {
   };
   return (
     <div className="container pt-3 text-primary font-weight-bold">
-      <h1>LogIn</h1>
+      <h1>Signup</h1>
       <div>
         <label>User Name</label>
       </div>
@@ -52,9 +55,17 @@ function Login() {
           ></input>
         </div>
       </div>
+      <div></div>
       <div>
-        <input type="checkbox"></input>
-        Remember Me
+        <label>Email Address</label>
+        <div>
+          <input
+            type="email"
+            value={stateEmail.Email}
+            onChange={handleEmail}
+            placeholder="Email Address"
+          ></input>
+        </div>
       </div>
       <button
         className=" btn-primary"
@@ -62,20 +73,10 @@ function Login() {
         value="submit"
         onClick={handleLogin}
       >
-        LogIn
+        Signup
       </button>
-      <div>
-        <Router>
-          <Switch>
-            <Route path="/Signup" component={Signup} />
-            <Route />
-          </Switch>
-
-          <Link to="/Signup">Signup</Link>
-        </Router>
-      </div>
     </div>
   );
 }
 
-export default Login;
+export default Signup;
