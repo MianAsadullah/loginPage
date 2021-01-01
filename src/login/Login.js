@@ -65,14 +65,7 @@ function Login() {
         LogIn
       </button>
       <div>
-        <Router>
-          <Switch>
-            <Route path="/Signup" component={Signup} />
-            <Route />
-          </Switch>
-
-          <Link to="/Signup">Signup</Link>
-        </Router>
+        <Link to="/Signup">Signup</Link>
       </div>
     </div>
   );

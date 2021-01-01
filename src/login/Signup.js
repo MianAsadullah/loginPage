@@ -22,16 +22,16 @@ function Signup() {
   };
   const handleLogin = () => {
     alert(
-      "User Name:" +
-        " " +
-        `${usernameState.UserNmae}` +
-        "\nPassword:" +
-        " " +
-        `${statePassword.i}`
+      `User Name: 
+         
+        ${usernameState.UserNmae} +
+        {\n} Password 
+
+        ${statePassword.i}`
     );
   };
   return (
-    <div className="container pt-3 text-primary font-weight-bold">
+    <div className="container pt-3 text-primary text-center font-weight-bold">
       <h1>Signup</h1>
       <div>
         <label>User Name</label>
