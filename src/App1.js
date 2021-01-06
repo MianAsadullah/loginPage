@@ -45,14 +45,6 @@ export class App1 extends Component {
     this.setState({ showPersons: !doesShow });
   };
   render() {
-    const style = {
-      backgroundColor: "green",
-      color: "white",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "pointer",
-    };
     let persons = null;
     if (this.state.showPersons) {
       persons = (
@@ -71,13 +63,20 @@ export class App1 extends Component {
           })}
         </div>
       );
-      style.backgroundColor = "red";
     }
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push("red");
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push("bold");
+    }
+
     return (
       <div>
-        <h1>Hi, I'mn a React App</h1>
-        <p>This is realy working</p>
-        <button style={style} onClick={this.toggleButtonHandler}>
+        <h1>Hi, I'm a React App</h1>
+        <p className={classes.join(" ")}>This is realy working</p>
+        <button className="button" onClick={this.toggleButtonHandler}>
           Toggle Person
         </button>
         {persons}
@@ -85,5 +84,4 @@ export class App1 extends Component {
     );
   }
 }
-
 export default App1;
