@@ -1,15 +1,17 @@
 import React from "react";
-
-const persons = (props) =>
+import Person from "../../Person/Person";
+const Persons = (props) =>
   props.persons.map((person, index) => {
-    <Person
-      click={() => this.deletePersonHandler(index)}
-      name={person.name}
-      age={person.age}
-      key={person.id}
-      changeName={(event) => this.nameChangeHandler(event, person.id)}
-      changeAge={(event) => this.ageChangeHandler(event, person.id)}
-    />;
+    return (
+      <Person
+        click={() => props.clicked(index)}
+        name={person.name}
+        age={person.age}
+        key={person.id}
+        changeName={(event) => props.changed(event, person.id)}
+        changeAge={(event) => props.changedAge(event, person.id)}
+      />
+    );
   });
 
-export default persons;
+export default Persons;

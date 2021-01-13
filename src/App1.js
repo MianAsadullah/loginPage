@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Person from "./Person/Person";
-
+import Persons from "./components/persons/Persons";
 export class App1 extends Component {
   state = {
     persons: [
@@ -49,7 +48,12 @@ export class App1 extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <persons />
+          <Persons
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangeHandler}
+            changedAge={this.ageChangeHandler}
+          />
         </div>
       );
     }
